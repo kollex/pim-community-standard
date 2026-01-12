@@ -21,7 +21,8 @@
     ]
   },
   "require": {
-    "akeneo/pim-community-dev": "dev-master"
+    "akeneo/pim-community-dev": "dev-master",
+    "cweagans/composer-patches": "^2.0"
   },
   "require-dev": {
     "symfony/debug-bundle": "^5.4.0",
@@ -41,10 +42,16 @@
   "minimum-stability": "stable",
   "config": {
     "allow-plugins": {
-      "symfony/flex": true
+      "symfony/flex": true,
+      "cweagans/composer-patches": false
     }
   },
   "extra": {
+    "patches": {
+        "akeneo/pim-community-dev": {
+            "Allow MySQL 8.4": "patches/allow_mysql_84.patch"
+        }
+    },
     "symfony": {
       "require": "5.4.*"
     }
